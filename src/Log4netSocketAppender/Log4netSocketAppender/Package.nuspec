@@ -5,7 +5,7 @@
     <id>log4net.SocketAppender</id>
 
     <!-- The package version number that is used when resolving dependencies -->
-    <version>1.0.0.0</version>
+    <version>1.0.0.1</version>
 
     <!-- Authors contain text that appears directly on the gallery -->
     <authors>Uğur Özşahin</authors>
@@ -26,7 +26,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
 
     <!-- Any details about this particular release -->
-    <releaseNotes>Socket Appender (Logstash, Tcp, Udp vs.) For log4net</releaseNotes>
+    <releaseNotes>
+      dll file export lib directory fix!
+    </releaseNotes>
 
     <title>log4net Socket (Logstash) Appender</title>
 
@@ -48,6 +50,8 @@
 
   <!-- A readme.txt will be displayed when the package is installed -->
   <files>
+    <!-- Include everything in \bin -->
+    <file src="bin\Release\Log4netSocketAppender.dll" target="lib" />
     <file src="readme.txt" target="" />
   </files>
 </package>
