@@ -9,7 +9,7 @@ Install-Package log4net.SocketAppender
 
 # Sample log4net Appender Configuration
 
-	<appender name="SocketAppender" type="log4net.Appender.SocketAppender">
+	<appender name="SocketAppender" type="log4net.Appender.SocketAppender, Log4netSocketAppender">
 	  <RemoteAddress value="192.168.99.100"/>
 	  <RemotePort value="5000" />
 	  <AddressFamily value="InterNetwork" />
