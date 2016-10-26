@@ -1,4 +1,4 @@
-# log4net Socket Appender
+# log4net Socket Appender (Logstash)
 Socket (Tcp, Udp vs.) Appender For log4net (Logstash)
 
 Nuget Package Url : https://www.nuget.org/packages/log4net.SocketAppender/
