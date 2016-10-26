@@ -1,0 +1,53 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!-- The identifier that must be unique within the hosting gallery -->
+    <id>log4net.SocketAppender</id>
+
+    <!-- The package version number that is used when resolving dependencies -->
+    <version>1.0.0.0</version>
+
+    <!-- Authors contain text that appears directly on the gallery -->
+    <authors>Uğur Özşahin</authors>
+
+    <!-- Owners are typically nuget.org identities that allow gallery 
+         users to earily find other packages by the same owners.  -->
+    <owners>ugurozsahin</owners>
+
+    <!-- License and project URLs provide links for the gallery -->
+    <licenseUrl>https://raw.githubusercontent.com/ugurozsahin/log4net-socket-appender/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ugurozsahin/log4net-socket-appender</projectUrl>
+
+    <!-- The icon is used in Visual Studio's package manager UI -->
+    <iconUrl>https://raw.githubusercontent.com/ugurozsahin/log4net-socket-appender/master/socket-appender-icon.png</iconUrl>
+
+    <!-- If true, this value prompts the user to accept the license when
+         installing the package. -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <!-- Any details about this particular release -->
+    <releaseNotes>Socket Appender (Logstash, Tcp, Udp vs.) For log4net</releaseNotes>
+
+    <title>log4net Socket (Logstash) Appender</title>
+
+    <!-- The description can be used in package manager UI. Note that the 
+         nuget.org gallery uses information you add in the portal. -->
+    <description>Socket Appender (Logstash, Tcp, Udp vs.) For log4net</description>
+
+    <!-- Copyright information -->
+    <copyright>Copyright ©2016 Inobil</copyright>
+
+    <!-- Tags appear in the gallery and can be used for tag searches -->
+    <tags>log4net socket appender tcp udp logstash</tags>
+
+    <!-- Dependencies are automatically installed when the package is installed -->
+    <dependencies>
+      <dependency id="log4net" version="2.0.5" />
+    </dependencies>
+  </metadata>
+
+  <!-- A readme.txt will be displayed when the package is installed -->
+  <files>
+    <file src="readme.txt" target="" />
+  </files>
+</package>
