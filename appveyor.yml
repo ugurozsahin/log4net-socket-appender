@@ -33,7 +33,7 @@ after_build:
 - ps: nuget pack src\Log4netSocketAppender\Log4netSocketAppender\Package.nuspec -version "$env:nugetVersion"
 
 artifacts:
-- path: 'Log4netSocketAppender*.nupkg'
+- path: 'log4net.SocketAppender*.nupkg'
   name: nuget-package
 
 deploy:
