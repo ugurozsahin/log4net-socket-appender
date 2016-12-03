@@ -1,4 +1,5 @@
-# log4net Socket Appender (Logstash)
+# log4net Socket Appender (Logstash) [![Build status](https://ci.appveyor.com/api/projects/status/8w2k4vq3j8s14hby/branch/master?svg=true)](https://ci.appveyor.com/project/ugurozsahin/log4net-socket-appender/branch/master)
+
 Socket (Tcp, Udp vs.) Appender For log4net (Logstash)
 
 Nuget Package Url : https://www.nuget.org/packages/log4net.SocketAppender/
