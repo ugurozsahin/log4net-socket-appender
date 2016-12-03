@@ -1,0 +1,45 @@
+version: 1.0.0.{build}
+
+environment:
+  packageVersion: 1.0.0
+  nuget_secure: iRgJLbvGvLEZPi7paKqFfCzmQ65VgpXKhL+7RU0e/OnL2/pOD9K2hi0qvleV2lKf
+
+init:
+- ps: $env:buildVersion = "$env:packageVersion.$env:appveyor_build_number"
+- ps: $env:nugetVersion = "$env:packageVersion-beta-$env:appveyor_build_number"
+- ps: Update-AppveyorBuild -Version $env:buildVersion
+
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '$(buildVersion)'
+  assembly_file_version: '$(buildVersion)'
+  assembly_informational_version: '$(nugetVersion)'
+
+configuration: Release
+
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
+
+before_build:
+- nuget restore src\Log4netSocketAppender\Log4netSocketAppender.sln
+
+build:
+  verbosity: minimal
+
+after_build:
+- ps: nuget pack src\Log4netSocketAppender\Log4netSocketAppender\Package.nuspec -version "$env:nugetVersion"
+
+artifacts:
+- path: 'Log4netSocketAppender*.nupkg'
+  name: nuget-package
+
+deploy:
+- provider: NuGet
+  api_key:
+    secure: $env:nuget_secure
+  artifact: nuget-package
+  on:
+    branch: master
