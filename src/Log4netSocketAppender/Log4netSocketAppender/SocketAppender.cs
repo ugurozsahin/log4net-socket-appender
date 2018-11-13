@@ -78,6 +78,10 @@ namespace log4net.Appender
                 try
                 {
                     var bytesSent = _socket.Send(msg);
+                    if (DebugMode)
+                    {
+                        Console.WriteLine("- Bytes sent: " + bytesSent);
+                    }
                 }
                 catch (ArgumentNullException argumentNullException)
                 {
@@ -90,11 +94,6 @@ namespace log4net.Appender
                 catch (Exception exception)
                 {
                     Console.WriteLine("Unexpected exception : {0}", exception);
-                }
-
-                if (DebugMode)
-                {
-                    Console.WriteLine("- Bytes sent: " + bytesSent);
                 }
             }
             else
