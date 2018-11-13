@@ -72,11 +72,25 @@ namespace log4net.Appender
 
             if (_socket.Connected)
             {
-                rendered = RenderLoggingEvent(loggingEvent);
+                rendered = RenderLoggingEvent(loggingEvent);                
 
                 var msg = Encoding.UTF8.GetBytes(rendered);
-
-                var bytesSent = _socket.Send(msg);
+                try
+                {
+                    var bytesSent = _socket.Send(msg);
+                }
+                catch (ArgumentNullException argumentNullException)
+                {
+                    Console.WriteLine("ArgumentNullException : {0}", argumentNullException);
+                }
+                catch (SocketException socketException)
+                {
+                    Console.WriteLine("SocketException : {0}", socketException);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine("Unexpected exception : {0}", exception);
+                }
 
                 if (DebugMode)
                 {
