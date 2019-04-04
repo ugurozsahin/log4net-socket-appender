@@ -18,6 +18,7 @@ Install-Package log4net.SocketAppender
 	  <ProtocolType value="Tcp" />
 	  <ConAttemptsCount value="5" />
 	  <ConAttemptsWaitingTimeMilliSeconds value="3000" />
+	  <ReconnectTimeInSeconds value="500" />
 	  <UseThreadPoolQueue value="true" />
 	  <layout type="log4net.Layout.PatternLayout, log4net">
 		<conversionPattern value="%property{log4net:HostName} %level %date{ISO8601} %thread %logger - %message%newline" />

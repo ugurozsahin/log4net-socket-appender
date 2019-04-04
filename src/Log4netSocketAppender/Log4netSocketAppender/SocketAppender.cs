@@ -26,12 +26,16 @@ namespace log4net.Appender
         public int ConAttemptsCount { get; set; }
         public int ConAttemptsWaitingTimeMilliSeconds { get; set; }
         public bool UseThreadPoolQueue { get; set; }
+        public int ReconnectTimeInSeconds { get; set; }
 
-
+        private static DateTime? _nextTrialTime = null;
         private Socket _socket;
 
         public override void ActivateOptions()
         {
+            if (_nextTrialTime.HasValue && _nextTrialTime.Value > DateTime.Now) return;
+            else _nextTrialTime = null;
+            
             var retryCount = 0;
             while (++retryCount <= ConAttemptsCount)
             {
@@ -86,6 +90,11 @@ namespace log4net.Appender
             else
             {
                 Console.WriteLine("[UNSUCCESSFULL]:: " + rendered);
+                if (!_nextTrialTime.HasValue)
+                {
+                    _nextTrialTime = DateTime.Now.AddSeconds(ReconnectTimeInSeconds);
+                }
+                ActivateOptions();
             }
         }
 
